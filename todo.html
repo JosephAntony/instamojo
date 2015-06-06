@@ -1,0 +1,125 @@
+<html>
+ <head>
+ 	<link rel="stylesheet" type="text/css" href="./todo.css">
+ </head>
+ <body>
+ 	
+ 	<div class="overlay"></div>
+ 	<div class="content" style="position:relative;">
+
+ 		   <div id="header">
+ 		   	 <span id="username">
+ 		   	 	Joseph Antony
+ 		   	 </span>
+ 		   </div>
+
+ 		   <div>
+ 		   	<a href="#options" style="float:left" id="showLeftMenu">moreOptions &gt;</a>
+ 		   	<a href="#details" style="float:right" id="showRightMenu">&lt; details</a>
+ 		   	<div style="clear:both;"></div>
+ 		   </div>
+
+ 		   <div class="listContent" style="min-height: 100%;">
+
+ 		   	<div class="addAlist mod-add is-idle" id="addList">
+
+ 		   		<span class="listTxt">Add a list...</span>
+ 		   		<div class="list">
+ 		   			<input type="text" placeholder="add a list.."/>
+ 		   			<button type="button" id="saveList">save</button>
+ 		   			<a href="" class="closeIcon"></a>
+ 		   		</div>
+
+ 		   	</div>
+
+
+ 		   	<!-- <div class="addAlist is-idle">
+
+ 		   		<h4 style="margin:0; padding-left:2px">list title</h4>
+
+ 		   		<div class="list">
+ 		   			<input type="text" placeholder="add a list.."/>
+ 		   			<button type="button">save</button>
+ 		   		</div>
+
+ 		   		<a href="#" class="card-composer">Add a card</a>
+
+ 		   	</div>
+ -->
+ 		   	
+ 		   </div>	
+
+ 		   <!-- <div class="leftMenu">
+ 		   	<ul id="leftMenuButtons">
+ 		   		<li>close</li>
+ 		   		<li>logout</li>
+ 		   		<li>deleteAll</li>
+ 		   	</ul>
+ 		   </div>
+ 		   <div class="rightMenu"></div> -->
+
+ 		   
+ 	</div>
+
+ 	<div class="leftMenu" >
+ 		   	<ul id="leftMenuButtons">
+ 		   		<li>close</li>
+ 		   		<li>logout</li>
+ 		   		<li>deleteAll</li>
+ 		   	</ul>
+ 	</div>
+ 	<div class="rightMenu">
+ 		<div class="activityContainer">
+ 		</div>
+ 	</div>
+
+
+
+
+
+ 	<div class="modal" id="modal">
+
+ 		<h2>Login</h2>
+
+ 		<form id="modalFrm">
+
+ 			<div>
+ 				<input type="text" id="usrname" placeholder="username"/> 
+ 			</div>
+ 			<div>
+ 				<input type="password" id="password" placeholder="password"/>
+ 			</div>
+ 			<div>
+ 				<button type="button" id="loginBtn">Submit</button>
+ 			</div>
+
+ 		</form>
+
+
+ 	</div>
+
+
+ 	<div class="modal" id="editModal">
+ 		<h2>Edit</h2>
+ 		<form>
+ 			<textarea rols="10" cols="20"></textarea>
+ 			<div class="buttonContainer">
+ 				 <button type="button" id="cardEditSaveBtn">save</button>
+ 				 <button type="button" id="cardEditResetBtn">reset</button>
+ 				 <button type="button" id="cardEditClearBtn">clear</button>
+ 			</div>
+ 		</form>	
+ 		<a href="" class="editCloseIcon"></a>
+ 	</div>
+
+ 	<script type="text/javascript">
+ 	 var insta = {};
+ 	</script>
+
+ 	<script type="text/javascript" src="./utils.js"></script>
+ 	<script type="text/javascript" src="./todo.js"></script>
+
+ 	
+
+ </body>
+</html>
