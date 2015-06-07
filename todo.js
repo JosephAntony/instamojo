@@ -107,8 +107,27 @@
 			if("close" == target.textContent){
 				utils.removeClassName(leftMenu, "show-leftMenu");
 			}else if("logout" == target.textContent){
-
+				if(window.localStorage)
+					delete window.localStorage["currentUser"];
+				window.location.reload();		
 			}else if("deleteAll"  == target.textContent){
+				if(window.localStorage){
+					var data =  JSON.parse( window.localStorage.getItem("currentUser") );
+					delete data.activityList;
+					delete data.card;
+					window.localStorage.setItem("currentUser", JSON.stringify(data) );
+
+					Array.prototype.forEach.call(usr, function(userObj, index){
+						if( (userObj.username == currentUser.username) && (userObj.password == currentUser.password)){
+							usr[index] = data;
+							window.localStorage.setItem("usr", JSON.stringify(usr));
+						}
+
+							
+					});
+
+					window.location.reload();
+				}
 
 			}
 		}
@@ -186,12 +205,6 @@
 			activityObj["list"] = listTitle + " Task List Created";
 			userObj["activityList"] = userObj["activityList"]?userObj["activityList"]:{};
 			userObj["activityList"][listCount] = {};
-			/*Object.defineProperty(userObj["activityList"][listCount], "title", {
-				"writable": true
-			   ,"enumerable": false
-			   ,"configurable": true
-			   ,"value":listTitle
-			});*/
 			userObj["activityList"][listCount].title = listTitle;
 			_saveUserObj();
 			listCount++;
@@ -203,8 +216,11 @@
 
 				
 
-						if(window.localStorage)
+						if(window.localStorage){
+							usr = JSON.parse( window.localStorage.getItem("usr") );
 							currentUser = JSON.parse( window.localStorage.getItem("currentUser") );
+						}
+							
 
 						if(currentUser && Object.keys(currentUser).length){
 							userObj =  currentUser; 
@@ -284,8 +300,15 @@
 
 	function _saveUserObj(){
 		currentUser =  userObj;
+		//usr =  usr?usr:JSON.parse(window.localStorage.getItem("usr"));
 		if(window.localStorage){
-			window.localStorage.setItem("usr", JSON.stringify(usr?usr:userObj));
+			Array.prototype.forEach.call(usr, function(userObj, index){
+				if( (userObj.password == currentUser.password) && (userObj.username == currentUser.password) ){
+					usr[index] = currentUser;
+					window.localStorage.setItem("usr", JSON.stringify(usr?usr:userObj));
+				}
+			});
+			
 			window.localStorage.setItem("currentUser", JSON.stringify(currentUser));
 		}
 				
