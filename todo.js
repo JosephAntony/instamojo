@@ -11,7 +11,8 @@
 	leftMenuButtons  = document.getElementById("leftMenuButtons"), body =  document.getElementsByTagName("body")[0], listContent =  document.getElementsByClassName("listContent")[0], listBtn =  document.getElementById("saveList")
 	,addListWidget = document.getElementById("addList") , listTemplate='<h4 style="margin:0; padding-left:2px">{{list title}}</h4><div class="list"><input type="text" placeholder="add a card.."/><button type="button" class="cardBtn">save</button><a href="" class="closeIcon"></a></div><a href="#" class="card-composer">Add a card</a>'
 	, clearValue = "", editCloseBtn =  document.getElementsByClassName("editCloseIcon")[0], editModal = document.getElementById("editModal"), currentCard, cardEditSaveBtn = document.getElementById("cardEditSaveBtn")
-	, cardEditResetBtn= document.getElementById("cardEditResetBtn"), cardEditClearBtn = document.getElementById("cardEditClearBtn"), activityObj = {"logIn":"", "logout":"", "list":"", "task":"", "drag":"", "updateTask":"", "drop":""}, rightViewModal ={}, userObj = {}, listCount = 0, usr, currentUser={};
+	, cardEditResetBtn= document.getElementById("cardEditResetBtn"), cardEditClearBtn = document.getElementById("cardEditClearBtn"), activityObj = {"logIn":"", "logout":"", "list":"", "task":"", "drag":"", "updateTask":"", "drop":""}, rightViewModal ={}, userObj = {}, listCount = 0, usr, currentUser={}
+	rightMenuOverlay = document.getElementsByClassName("rightMenu")[0];
 
 
 
@@ -388,6 +389,8 @@
 	leftMenu.addEventListener("click", eventsObj.showLeftMenu);
 
 	rightMenu.addEventListener("click", eventsObj.showRightMenu);
+
+	rightMenuOverlay.addEventListener("click", eventsObj.showRightMenu);
 
 	leftMenuButtons.addEventListener("click", eventsObj.leftMenuButtons, true);
 
