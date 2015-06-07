@@ -62,17 +62,6 @@
 
 						if(window.localStorage)
 									window.localStorage.setItem("currentUser", JSON.stringify(currentUser));
-						/*if(usr[username])
-							document.getElementById("username").innerHTML =  usr[username].username;
-						else{
-							usr[username] = {};
-							usr[username]["username"] =  username;
-							usr[username]["password"] = password; 
-							window.localStorage.setItem("usr", JSON.stringify(usr));
-							document.getElementById("username").innerHTML =  JSON.parse(window.localStorage.getItem("usr"))[username].username; 
-
-
-						}*/ 
 						
 					};
 					
@@ -344,10 +333,6 @@
 		div.addEventListener("drop", eventsObj["drop"]);
 		div.addEventListener("dragover", eventsObj["allowDrop"])
 		div.innerHTML = listTemplate.replace("{{list title}}", listTitle);;
-		//listContent.insertBefore(div, addListWidget);
-		//utils.addClassName(addListWidget, "is-idle");
-		//listContent.appendChild(div, listContent.firstChild);
-		//activityObj["list"] = listTitle + " Task List Created";
 		listCount = listId;
 		return div;
 	};
