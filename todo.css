@@ -47,7 +47,7 @@ body{
 }
 
 .show-modal{
-	top: 500px;
+	top: 300px;
 	visibility: visible;
 	opacity: 1;
 }
